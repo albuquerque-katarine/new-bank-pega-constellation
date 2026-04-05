@@ -3,7 +3,7 @@
 
 ## Vídeo de demonstração
 
-Acesse o Vídeo: ![New Bank App - Pega Constellation](https://lnkd.in/dMpNjka2)
+Acesse o Vídeo: [![New Bank App - Pega Constellation](image-1.png)](https://youtu.be/s9CjFWR6vxI?si=6bIr2WHoUOrarv76)
 
 ## Objetivo
 
