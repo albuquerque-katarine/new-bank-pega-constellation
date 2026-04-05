@@ -1,6 +1,10 @@
 # New Bank
 ## Pega Constellation
 
+## Vídeo de demonstração
+
+Acesse o Vídeo: ![New Bank App - Pega Constellation](https://lnkd.in/dMpNjka2)
+
 ## Objetivo
 
 A aplicação New Bank tem como objetivo simular um fluxo bancário básico, organizado de forma simples e modular dentro de um Case Type. Ela permite gerenciar o ciclo completo de um cliente desde a entrada até a movimentação da conta.
