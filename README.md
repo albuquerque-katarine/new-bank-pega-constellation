@@ -3,7 +3,7 @@
 
 ## Vídeo de demonstração
 
-Acesse o Vídeo: [![New Bank App - Pega Constellation](image-14.png)](https://youtu.be/s9CjFWR6vxI?si=6bIr2WHoUOrarv76)
+Acesse o Vídeo: [![New Bank App - Pega Constellation](image-13.png)](https://youtu.be/s9CjFWR6vxI?si=6bIr2WHoUOrarv76)
 
 ## Objetivo
 
@@ -37,6 +37,21 @@ A aplicação New Bank tem como objetivo simular um fluxo bancário básico, org
 
 ![alt text](image-11.png)
 
+## Principais Propriedades do Case
+
+- Cliente (Data Reference | D_ClienteSavable | Copy)
+- Conta (Data Reference  | D_ContaSavable | Copy)
+- Transacao (Data Reference | D_TransacaoSavable | Copy)
+- Email (Email)
+- Senha (Text)
+- Saldo (Decimal) Calculate
+- SaldoAtual (Decimal)
+- Valor (Decimal)
+- EscolhaOperação (Picklist: Criar Conta | Acessar Conta)
+- NovaOperacao (Boolean)
+- TipoOperacao (Text)
+- CriarConta (Boolean)
+
 ## Data Type
 
 - Cliente
@@ -66,6 +81,15 @@ A aplicação New Bank tem como objetivo simular um fluxo bancário básico, org
 - D_TransacaoSavable
 - D_ContaSavable
 
+        IF pyGUID != ""
+            Acessa Lookup
+        ELSE
+            Acessa Data Transform
+
+![alt text](image-16.png)
+
+O exemplo mostra a busca pelo pyGUID existente, por exemplo na Data Page "D_ClienteSavable". Neste caso executou o Lookup.
+
 As Data Pages Salváveis possuem duas fontes de dados, Loockup e Data Transform; se o Param.pyGUID for diferente de Vazio, acessa o Loockup; senão o Data Transform. O parâmetro pyGUID foi configurado para não ser obrigatório.
 
 ## Data Pages Criadas
@@ -76,6 +100,9 @@ As Data Pages Salváveis possuem duas fontes de dados, Loockup e Data Transform;
     - Tipo: List
     - Parâmetro(s): Email e Senha
     - Fonte de dados: Report Definition
+    - Ready-only
+
+![alt text](image-14.png)
 
 Data Page usada para validar o acesso à conta, solicitando email e senha.
 
@@ -85,8 +112,33 @@ Data Page usada para validar o acesso à conta, solicitando email e senha.
     - Tipo: List
     - Parâmetro(s): Email
     - Fonte de dados: Report Definition
+    - Ready-only
+
+![alt text](image-15.png)
 
 Data Page usada para verificar se a conta existe, fazendo a busca com o email do cliente.
+
+## Pré-Processamento
+
+- Realizar Transações (Data Transform: DT_PreRealizarTransacao)
+    - Parâmetro: Email
+
+    ![alt text](image-8.png)
+
+## Pós-Processamento
+
+- Acessar Conta (Data Transform: DT_ValidarCliente)
+
+    ![alt text](image-9.png)
+
+- Realizar Transações (Data Transform: DT_CalcularSaldo)
+    - Parâmetro: Email
+
+    ![alt text](image-6.png)
+
+- Exibir Conta (Data Transform: DT_PreExibirConta)
+
+    ![alt text](image-7.png)
 
 ## Stage: Abertura
 
@@ -138,28 +190,6 @@ Data Page usada para verificar se a conta existe, fazendo a busca com o email do
     - Deseja Realizar Nova Operação?
 
     ![alt text](image-5.png)
-
-## Pré-Processamento
-
-- Realizar Transações (Data Transform: DT_PreRealizarTransacao)
-    - Parâmetro: Email
-
-    ![alt text](image-8.png)
-
-## Pós-Processamento
-
-- Acessar Conta (Data Transform: DT_ValidarCliente)
-
-    ![alt text](image-9.png)
-
-- Realizar Transações (Data Transform: DT_CalcularSaldo)
-    - Parâmetro: Email
-
-    ![alt text](image-6.png)
-
-- Exibir Conta (Data Transform: DT_PreExibirConta)
-
-    ![alt text](image-7.png)
 
 ## Contatos
 
