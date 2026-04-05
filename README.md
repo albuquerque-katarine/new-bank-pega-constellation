@@ -70,7 +70,7 @@ As Data Pages Salváveis possuem duas fontes de dados, Loockup e Data Transform;
 
 ## Data Pages Criadas
 
-### Data Objects: Cliente
+### Data Type: Cliente
 
 - D_ClientePorEmailSenha
     - Tipo: List
@@ -79,7 +79,7 @@ As Data Pages Salváveis possuem duas fontes de dados, Loockup e Data Transform;
 
 Data Page usada para validar o acesso à conta, solicitando email e senha.
 
-### Data Objects: Conta
+### Data Type: Conta
 
 - D_ContaPorEmailCliente
     - Tipo: List
